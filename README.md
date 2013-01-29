@@ -1,3 +1,7 @@
+=
+JSON Schema Genarotor
+=
+
 # About
 
 It is a json schema genarator from any json source.
@@ -124,5 +128,3 @@ It should generate a json schema as":
             }
         }
     }
-
-
