@@ -42,11 +42,14 @@ class SchemaGenerator(object):
         schema_dict["required"] = True
         schema_dict["type"] = schema_type.json_type
 
-        if base_object_type == ObjectType:
+        if schema_type == ObjectType:
             pass
 
-        elif base_object_type == ArrayType:
-            pass
+        elif schema_type == ArrayType:
+            if len(base_object) > 0:
+                first_item_type = type(base_object[0])
+                same_type = all(base_object, lambda item: type(item) == first_item_type)
+                schema_dict['']
 
         return schema_dict
 

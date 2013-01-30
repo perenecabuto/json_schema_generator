@@ -49,6 +49,27 @@ boolean_json_schema = """
     }
 """
 
+array_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "array",
+        "id": "#",
+        "required": true
+    }
+"""
+
+array_of_number_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "array",
+        "id": "#",
+        "required": true,
+        "items":  {
+            "type": "number",
+            "required": true
+        }
+    }
+"""
 
 json_1 = """
     {

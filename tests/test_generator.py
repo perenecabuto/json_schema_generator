@@ -44,27 +44,39 @@ class TestGenerator(TestCase):
 
         self.assertIsInstance(generator, SchemaGenerator)
 
-    def test_generator_should_convert_null_types(self):
+    def test_generator_should_convert_null(self):
         generator = SchemaGenerator.from_json('null')
         expected = json.loads(fixtures.null_json_schema)
 
         self.assertEqual(generator.to_dict(), expected)
 
-    def test_generator_should_convert_number_types(self):
+    def test_generator_should_convert_number(self):
         generator = SchemaGenerator.from_json('1')
         expected = json.loads(fixtures.number_json_schema)
 
         self.assertEqual(generator.to_dict(), expected)
 
-    def test_generator_should_convert_string_types(self):
+    def test_generator_should_convert_string(self):
         generator = SchemaGenerator.from_json('"str"')
         expected = json.loads(fixtures.string_json_schema)
 
         self.assertEqual(generator.to_dict(), expected)
 
-    def test_generator_should_convert_boolean_types(self):
+    def test_generator_should_convert_boolean(self):
         generator = SchemaGenerator.from_json('true')
         expected = json.loads(fixtures.boolean_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_array(self):
+        generator = SchemaGenerator.from_json('[]')
+        expected = json.loads(fixtures.array_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_array_with_homogeneous_items(self):
+        generator = SchemaGenerator.from_json('[1, 2, 3]')
+        expected = json.loads(fixtures.array_of_number_json_schema)
 
         self.assertEqual(generator.to_dict(), expected)
 
