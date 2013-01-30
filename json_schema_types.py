@@ -42,10 +42,6 @@ class BooleanType(object):
     json_type = "boolean"
 
 
-class BooleanType(object):
-    json_type = "boolean"
-
-
 class ArrayType(object):
     json_type = "array"
     items = []
@@ -68,3 +64,4 @@ SCHEMA_TYPES = {
     types.ListType: ArrayType,
     types.DictType: ObjectType,
 }
+

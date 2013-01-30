@@ -8,7 +8,10 @@ except:
     import json
 
 from generator import SchemaGenerator
-from .fixtures import example_json_1, example_json_schema_1
+from .fixtures import (
+    example_json_1, example_json_schema_1,
+    example_null_json, example_null_json_schema,
+)
 
 
 class TestGenerator(TestCase):
@@ -43,3 +46,8 @@ class TestGenerator(TestCase):
 
         self.assertIsInstance(generator, SchemaGenerator)
 
+    def test_generator_should_convert_null_types(self):
+        generator = SchemaGenerator.from_json(example_null_json)
+        expected = json.loads(example_null_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)

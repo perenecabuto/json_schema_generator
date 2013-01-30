@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from json_schema_types import Type
+from json_schema_types import Type, ObjectType, ArrayType
 
 
 class SchemaGenerator(object):
@@ -41,6 +41,12 @@ class SchemaGenerator(object):
 
         schema_dict["required"] = True
         schema_dict["type"] = schema_type.json_type
+
+        if base_object_type == ObjectType:
+            pass
+
+        elif base_object_type == ArrayType:
+            pass
 
         return schema_dict
 
