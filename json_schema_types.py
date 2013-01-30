@@ -14,16 +14,16 @@ class Type(object):
     def get_schema_type_for(self, t):
         """docstring for get_schema_type_for"""
 
-        json_type = json_typeS.get(t)
+        schema_type = SCHEMA_TYPES.get(t)
 
-        if not json_type:
+        if not schema_type:
             raise JsonSchemaTypeNotFound(
                 "There is no schema type for %s.\n Try:\n %s" % (
-                    str(t), ",\n".join(["\t%s" % str(k) for k in json_typeS.keys()])
+                    str(t), ",\n".join(["\t%s" % str(k) for k in SCHEMA_TYPES.keys()])
                 )
             )
 
-        return json_type
+        return schema_type
 
 
 class IntegerType(object):
@@ -60,7 +60,7 @@ class JsonSchemaTypeNotFound(Exception):
     pass
 
 
-json_typeS = {
+SCHEMA_TYPES = {
     types.NoneType: NullType,
     types.StringType: StringType,
     types.IntType: IntegerType,
