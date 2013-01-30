@@ -22,7 +22,7 @@ class TestSchemaTypes(TestCase):
         gotten = Type.get_schema_type_for(type(1))
 
         self.assertEqual(gotten, IntegerType)
-        self.assertEqual(gotten.json_type, "integer")
+        self.assertEqual(gotten.json_type, "number")
 
     def test_string_type(self):
         gotten = Type.get_schema_type_for(type("str"))

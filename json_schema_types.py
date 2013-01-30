@@ -27,7 +27,7 @@ class Type(object):
 
 
 class IntegerType(object):
-    json_type = "integer"
+    json_type = "number"
 
 
 class StringType(object):

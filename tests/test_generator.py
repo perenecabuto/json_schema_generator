@@ -11,6 +11,7 @@ from generator import SchemaGenerator
 from .fixtures import (
     example_json_1, example_json_schema_1,
     example_null_json, example_null_json_schema,
+    example_int_json, example_int_json_schema,
 )
 
 
@@ -51,3 +52,10 @@ class TestGenerator(TestCase):
         expected = json.loads(example_null_json_schema)
 
         self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_int_types(self):
+        generator = SchemaGenerator.from_json(example_int_json)
+        expected = json.loads(example_int_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+

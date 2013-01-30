@@ -13,6 +13,19 @@ example_null_json_schema = """
     }
 """
 
+example_int_json = """
+    1
+"""
+
+example_int_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "number",
+        "id": "#",
+        "required": true
+    }
+"""
+
 
 example_json_1 = """
     {
