@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 
-example_null_json = """
-    null
-"""
 
-example_null_json_schema = """
+null_json_schema = """
     {
         "$schema": "http://json-schema.org/draft-03/schema",
         "type": "null",
@@ -13,11 +10,7 @@ example_null_json_schema = """
     }
 """
 
-example_int_json = """
-    1
-"""
-
-example_int_json_schema = """
+int_json_schema = """
     {
         "$schema": "http://json-schema.org/draft-03/schema",
         "type": "number",
@@ -27,7 +20,7 @@ example_int_json_schema = """
 """
 
 
-example_json_1 = """
+json_1 = """
     {
         "item_1": "string_value_1",
         "item_2": 123,
@@ -46,7 +39,7 @@ example_json_1 = """
     }
 """
 
-example_json_schema_1 = """
+json_schema_1 = """
     {
         "type": "object",
         "$schema": "http://json-schema.org/draft-03/schema",
@@ -147,3 +140,4 @@ example_json_schema_1 = """
         }
     }
 """
+
