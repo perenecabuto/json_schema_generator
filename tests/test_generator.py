@@ -50,9 +50,21 @@ class TestGenerator(TestCase):
 
         self.assertEqual(generator.to_dict(), expected)
 
-    def test_generator_should_convert_int_types(self):
+    def test_generator_should_convert_number_types(self):
         generator = SchemaGenerator.from_json('1')
-        expected = json.loads(fixtures.int_json_schema)
+        expected = json.loads(fixtures.number_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_string_types(self):
+        generator = SchemaGenerator.from_json('"str"')
+        expected = json.loads(fixtures.string_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_boolean_types(self):
+        generator = SchemaGenerator.from_json('true')
+        expected = json.loads(fixtures.boolean_json_schema)
 
         self.assertEqual(generator.to_dict(), expected)
 

@@ -10,10 +10,40 @@ null_json_schema = """
     }
 """
 
-int_json_schema = """
+number_json_schema = """
     {
         "$schema": "http://json-schema.org/draft-03/schema",
         "type": "number",
+        "id": "#",
+        "required": true
+    }
+"""
+
+
+string_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "string",
+        "id": "#",
+        "required": true
+    }
+"""
+
+
+boolean_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "boolean",
+        "id": "#",
+        "required": true
+    }
+"""
+
+
+boolean_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "boolean",
         "id": "#",
         "required": true
     }
