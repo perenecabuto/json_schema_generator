@@ -58,6 +58,7 @@ class JsonSchemaTypeNotFound(Exception):
 
 SCHEMA_TYPES = {
     types.NoneType: NullType,
+    types.UnicodeType: StringType,
     types.StringType: StringType,
     types.IntType: IntegerType,
     types.BooleanType: BooleanType,
