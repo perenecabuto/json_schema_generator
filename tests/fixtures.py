@@ -19,7 +19,6 @@ number_json_schema = """
     }
 """
 
-
 string_json_schema = """
     {
         "$schema": "http://json-schema.org/draft-03/schema",
@@ -29,7 +28,6 @@ string_json_schema = """
     }
 """
 
-
 boolean_json_schema = """
     {
         "$schema": "http://json-schema.org/draft-03/schema",
@@ -38,7 +36,6 @@ boolean_json_schema = """
         "required": true
     }
 """
-
 
 boolean_json_schema = """
     {
@@ -65,8 +62,70 @@ array_of_number_json_schema = """
         "id": "#",
         "required": true,
         "items":  {
+            "id": "0",
             "type": "number",
             "required": true
+        }
+    }
+"""
+
+mixed_array_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "array",
+        "id": "#",
+        "required": true,
+        "items":  [
+            {
+                "id": "0",
+                "type": "string",
+                "required": true
+            },
+            {
+                "id": "1",
+                "type": "number",
+                "required": true
+            },
+            {
+                "id": "2",
+                "type": "object",
+                "required": true
+            }
+        ]
+    }
+"""
+
+object_json_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "object",
+        "id": "#",
+        "required": true
+    }
+"""
+
+object_with_properties_schema = """
+    {
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "type": "object",
+        "id": "#",
+        "required": true,
+        "properties": {
+            "p1": {
+                "id": "p1",
+                "type": "number",
+                "required": true
+            },
+            "p2": {
+                "id": "p2",
+                "type": "string",
+                "required": true
+            },
+            "p3": {
+                "id": "p3",
+                "type": "boolean",
+                "required": true
+            }
         }
     }
 """
@@ -78,14 +137,14 @@ json_1 = """
         "item_3": [1, 2, 3],
         "item_4": true,
         "item_5": null,
-        "item_6": { "key": "value"},
+        "item_6": {"key": "value"},
         "item_7": {
             "item_7.1": "string_value_1",
             "item_7.2": 123,
             "item_7.3": [1, 2, 3],
             "item_7.4": true,
             "item_7.5": null,
-            "item_7.6": { "key": "value"}
+            "item_7.6": {"key": "value"}
         }
     }
 """

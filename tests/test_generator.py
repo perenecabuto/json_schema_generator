@@ -20,9 +20,6 @@ class TestGenerator(TestCase):
         gotten = generator.to_dict()
         expected = json.loads(fixtures.json_schema_1)
 
-        from pprint import pprint
-        pprint(gotten)
-
         self.assertEqual(gotten, expected)
 
     def test_instance(self):
@@ -77,6 +74,24 @@ class TestGenerator(TestCase):
     def test_generator_should_convert_array_with_homogeneous_items(self):
         generator = SchemaGenerator.from_json('[1, 2, 3]')
         expected = json.loads(fixtures.array_of_number_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_array_with_hetereogeneous_items(self):
+        generator = SchemaGenerator.from_json('["a", 1, {}]')
+        expected = json.loads(fixtures.mixed_array_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_object(self):
+        generator = SchemaGenerator.from_json('{}')
+        expected = json.loads(fixtures.object_json_schema)
+
+        self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_convert_object_with_properties(self):
+        generator = SchemaGenerator.from_json('{"p1": 1, "p2": "str", "p3": false}')
+        expected = json.loads(fixtures.object_with_properties_schema)
 
         self.assertEqual(generator.to_dict(), expected)
 
