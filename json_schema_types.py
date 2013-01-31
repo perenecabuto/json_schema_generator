@@ -61,6 +61,7 @@ SCHEMA_TYPES = {
     types.UnicodeType: StringType,
     types.StringType: StringType,
     types.IntType: IntegerType,
+    types.FloatType: IntegerType,
     types.BooleanType: BooleanType,
     types.ListType: ArrayType,
     types.DictType: ObjectType,

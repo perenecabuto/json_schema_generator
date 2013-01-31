@@ -24,8 +24,20 @@ class TestSchemaTypes(TestCase):
         self.assertEqual(gotten, IntegerType)
         self.assertEqual(gotten.json_type, "number")
 
+    def test_float_type(self):
+        gotten = Type.get_schema_type_for(type(1.1))
+
+        self.assertEqual(gotten, IntegerType)
+        self.assertEqual(gotten.json_type, "number")
+
     def test_string_type(self):
         gotten = Type.get_schema_type_for(type("str"))
+
+        self.assertEqual(gotten, StringType)
+        self.assertEqual(gotten.json_type, "string")
+
+    def test_unicode_type(self):
+        gotten = Type.get_schema_type_for(type(u"str"))
 
         self.assertEqual(gotten, StringType)
         self.assertEqual(gotten.json_type, "string")
