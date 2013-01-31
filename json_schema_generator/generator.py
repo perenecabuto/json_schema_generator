@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from json_schema_types import Type, ObjectType, ArrayType
+from .schema_types import Type, ObjectType, ArrayType
 
 
 class SchemaGenerator(object):

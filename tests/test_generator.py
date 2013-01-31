@@ -2,12 +2,9 @@
 
 from unittest import TestCase
 
-try:
-    from simplejson import simplejson as json
-except:
-    import json
+import json
 
-from generator import SchemaGenerator
+from json_schema_generator import SchemaGenerator
 
 import fixtures
 

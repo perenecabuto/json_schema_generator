@@ -2,7 +2,7 @@
 
 from unittest import TestCase
 
-from json_schema_types import (
+from json_schema_generator.schema_types import (
     Type,
     NullType,
     StringType,
