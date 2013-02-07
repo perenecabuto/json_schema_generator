@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from unittest import TestCase
-
 import json
+from unittest import TestCase
 
 from json_schema_generator import SchemaGenerator
 
+from .helpers import normalize_json
 import fixtures
 
 
@@ -91,4 +91,12 @@ class TestGenerator(TestCase):
         expected = json.loads(fixtures.object_with_properties_schema)
 
         self.assertEqual(generator.to_dict(), expected)
+
+    def test_generator_should_return_text_plain_json_schema(self):
+        generator = SchemaGenerator.from_json('{"p1": 1, "p2": "str", "p3": false}')
+
+        gotten = normalize_json(generator.to_json())
+        expected = normalize_json(fixtures.object_with_properties_schema)
+
+        self.assertEqual(gotten, expected)
 

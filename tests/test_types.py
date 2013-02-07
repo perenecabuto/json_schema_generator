@@ -6,7 +6,7 @@ from json_schema_generator.schema_types import (
     Type,
     NullType,
     StringType,
-    IntegerType,
+    NumberType,
     BooleanType,
     ArrayType,
     ObjectType,
@@ -21,13 +21,19 @@ class TestSchemaTypes(TestCase):
     def test_integer_type(self):
         gotten = Type.get_schema_type_for(type(1))
 
-        self.assertEqual(gotten, IntegerType)
+        self.assertEqual(gotten, NumberType)
         self.assertEqual(gotten.json_type, "number")
 
     def test_float_type(self):
         gotten = Type.get_schema_type_for(type(1.1))
 
-        self.assertEqual(gotten, IntegerType)
+        self.assertEqual(gotten, NumberType)
+        self.assertEqual(gotten.json_type, "number")
+
+    def test_long_type(self):
+        gotten = Type.get_schema_type_for(long)
+
+        self.assertEqual(gotten, NumberType)
         self.assertEqual(gotten.json_type, "number")
 
     def test_string_type(self):

@@ -66,3 +66,6 @@ class SchemaGenerator(object):
 
         return schema_dict
 
+    def to_json(self, **kwargs):
+        return json.dumps(self.to_dict(), **kwargs)
+

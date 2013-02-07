@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from tests import test_types, test_generator
+import pkgutil
+import tests
 
 loader = unittest.TestLoader()
+suite = unittest.TestSuite()
 
-suite = loader.loadTestsFromModule(test_types)
-suite.addTests(loader.loadTestsFromModule(test_generator))
+for importer, modname, ispkg in pkgutil.iter_modules(tests.__path__):
+    mod = __import__('tests.%s' % modname, globals(), locals(), ['*'], -1)
+    suite.addTests(loader.loadTestsFromModule(mod))
 
 unittest.TextTestRunner(verbosity=2).run(suite)

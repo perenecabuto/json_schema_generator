@@ -26,7 +26,7 @@ class Type(object):
         return schema_type
 
 
-class IntegerType(object):
+class NumberType(object):
     json_type = "number"
 
 
@@ -60,8 +60,9 @@ SCHEMA_TYPES = {
     types.NoneType: NullType,
     types.UnicodeType: StringType,
     types.StringType: StringType,
-    types.IntType: IntegerType,
-    types.FloatType: IntegerType,
+    types.IntType: NumberType,
+    types.FloatType: NumberType,
+    types.LongType: NumberType,
     types.BooleanType: BooleanType,
     types.ListType: ArrayType,
     types.DictType: ObjectType,
