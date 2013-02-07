@@ -1,4 +1,21 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 from unittest import TestCase
-from json_certifier.recorder import Recorder
+from json_schema_generator import Validator
+from urllib2 import urlopen
+
+SERVICE_URL = "${service_url}"
+
+
+class TestHomogate(TestCase):
+
+    def test_${homologation_name}_should_match_json_schema(self):
+        json_data = urlopen(SERVICE_URL).read()
+        json_schema_file_path = os.path.join("${json_schemas_dir}", "${json_schema_file_name}")
+        validator = Validator.from_path(json_schema_file_path)
+        is_valid = validator.assert_json(json_data)
+
+        self.assertTrue(is_valid, validator.error_message)
+

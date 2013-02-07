@@ -23,7 +23,7 @@ It validates if the json validates with file.json_schema
 
 It should **create (or replace)**
 a fixture file called **json_schemas/immutable.json_schema**
-and a test file called **immutable_jsonschema.py**
+and a test file called **test_immutable_jsonschema.py**
 in the current dir.
 
 If you want to create it in another path use **--path /wanted/path/dir/**

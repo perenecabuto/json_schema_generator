@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+#import re
+import os
 import argparse
-import re
+import string
 
+import json_schema_generator
 from json_schema_generator import Recorder, Validator
 
 
@@ -27,7 +30,31 @@ def validate(args):
 
 
 def homologate(args):
-    print "homolotate"
+    template_file_path = os.path.join(os.path.dirname(json_schema_generator.__file__), 'test_template.py.txt')
+    json_schemas_dir = os.path.join(args.path, 'json_schemas')
+    json_schema_file_name = '%s.json_schema' % args.homologation_name
+    json_schema_file_path = os.path.join(json_schemas_dir, json_schema_file_name)
+    test_file_path = os.path.join(args.path, 'test_%s_json_schema.py' % args.homologation_name)
+
+    with open(template_file_path) as template_file:
+        tmpl = string.Template(template_file.read())
+
+    if not os.path.exists(json_schemas_dir):
+        os.mkdir(json_schemas_dir)
+
+    if not os.path.exists(json_schema_file_path):
+        rec = Recorder.from_url(args.json_source)
+        rec.save_json_schema(json_schema_file_path, indent=4)
+
+    rendered = tmpl.substitute(
+        homologation_name=args.homologation_name,
+        service_url=args.json_source,
+        json_schema_file_name=json_schema_file_name,
+        json_schemas_dir=json_schemas_dir
+    )
+
+    with open(test_file_path, 'w') as test_file:
+        test_file.write(rendered)
 
 
 def main():
@@ -35,7 +62,7 @@ def main():
 
     default_parser = argparse.ArgumentParser(add_help=False)
     default_parser.add_argument('json_source', type=str, help='url or file')
-    default_parser.add_argument('--path', dest='path', help='set path')
+    default_parser.add_argument('--path', dest='path', default='', help='set path')
 
     subparsers = parser.add_subparsers(help='sub-command help')
 
@@ -48,7 +75,7 @@ def main():
     parser_validate.set_defaults(func=validate)
 
     parser_homologate = subparsers.add_parser('homologate', parents=[default_parser])
-    parser_homologate.add_argument('homolation_name', type=str, help='json schema file path')
+    parser_homologate.add_argument('homologation_name', type=str, help='json schema file path')
     parser_homologate.set_defaults(func=homologate)
 
     args = parser.parse_args()
