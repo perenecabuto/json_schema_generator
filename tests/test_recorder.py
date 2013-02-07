@@ -26,7 +26,7 @@ class TestRecorder(TestCase):
     @patch('urllib2.urlopen')
     def test_recorder_should_get_json_from_url(self, fake_urlopen=None):
         fake_urlopen.is_callable().expects_call().returns_fake() \
-                .provides('read').returns(fixtures.json_1)
+            .provides('read').returns(fixtures.json_1)
 
         rec = Recorder.from_url(self.service_url)
         rec.save_json_schema(self.json_schema_file_path)
