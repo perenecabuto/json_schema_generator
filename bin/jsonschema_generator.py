@@ -31,7 +31,7 @@ def validate(args):
 
 def homologate(args):
     template_file_path = os.path.join(os.path.dirname(json_schema_generator.__file__), 'test_template.py.tmpl')
-
+    json_schemas_dir = os.path.join(args.path, 'json_schemas')
     json_schema_file_name = '%s.json_schema' % args.homologation_name
     json_schema_file_path = os.path.join(json_schemas_dir, json_schema_file_name)
     test_file_path = os.path.join(args.path, 'test_%s_json_schema.py' % args.homologation_name)
