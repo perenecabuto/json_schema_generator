@@ -19,6 +19,7 @@ setup(
     #package_data={'jsonschema_generator': ['test_template.py.tmpl']},
     include_package_data=True,
     install_requires=['jsonschema==0.8.0'],
+    zip_safe=False,
 
     keywords='json_schema, jsonschema, json, generator, api, validator',
     classifiers=[
