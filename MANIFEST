@@ -6,4 +6,5 @@ json_schema_generator/__init__.py
 json_schema_generator/generator.py
 json_schema_generator/recorder.py
 json_schema_generator/schema_types.py
+json_schema_generator/test_template.py.tmpl
 json_schema_generator/validator.py

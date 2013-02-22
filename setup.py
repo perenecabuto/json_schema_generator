@@ -1,22 +1,25 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 
 setup(
     name='json_schema_generator',
-    version='0.1',
+    version='0.3',
     description='A simple json schema generator based on json resource with auto validation tools',
     author='Felipe Ramos Ferreira',
     author_email='perenecabuto@gmail.com',
     maintainer='Felipe Ramos Ferreira',
     maintainer_email='perenecabuto@gmail.com',
-    scripts=['bin/jsonschema_generator.py'],
     url='https://pypi.python.org/pypi/json_schema_generator/',
+
+    scripts=['bin/jsonschema_generator.py'],
     include_dirs=('json_schema_generator/',),
-    packages=[
-        'json_schema_generator',
-    ],
+    packages=['json_schema_generator'],
+    #package_data={'jsonschema_generator': ['test_template.py.tmpl']},
+    include_package_data=True,
+    install_requires=['jsonschema==0.8.0'],
+
     keywords='json_schema, jsonschema, json, generator, api, validator',
     classifiers=[
         'Development Status :: 4 - Beta',
