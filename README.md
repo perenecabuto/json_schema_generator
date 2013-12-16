@@ -1,4 +1,3 @@
-
 ### JSON Schema Genarotor
 
 #### About
@@ -29,9 +28,9 @@ Since you have a json file with the above structure":
             "item_7.6": { "key": "value"}
         }
     }
-
+```
 It should generate a json schema as":
-
+```json
     {
         "$schema": "http://json-schema.org/draft-03/schema",
         "id": "#",
