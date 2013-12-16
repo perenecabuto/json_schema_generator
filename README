@@ -6,6 +6,10 @@ JSON Schema Genarotor
 
 It is a json schema genarator from any json source.
 
+# Usage
+
+See [Usage](USAGE.md)
+
 # Example
 
 Since you have a json file with the above structure":
