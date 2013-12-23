@@ -1,15 +1,17 @@
-=
-JSON Schema Genarotor
-=
+### JSON Schema Genarotor
 
-# About
+#### About
 
 It is a json schema genarator from any json source.
 
-# Example
+#### Usage
+
+See [Usage](USAGE.md)
+
+#### Example
 
 Since you have a json file with the above structure":
-
+```json
     {
         "item_1": "string_value_1",
         "item_2": 123,
@@ -26,9 +28,9 @@ Since you have a json file with the above structure":
             "item_7.6": { "key": "value"}
         }
     }
-
+```
 It should generate a json schema as":
-
+```json
     {
         "$schema": "http://json-schema.org/draft-03/schema",
         "id": "#",
@@ -128,3 +130,4 @@ It should generate a json schema as":
             }
         }
     }
+```
