@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import types
+import sys
 
 
 class Type(object):
@@ -56,15 +56,27 @@ class JsonSchemaTypeNotFound(Exception):
     pass
 
 
-SCHEMA_TYPES = {
-    types.NoneType: NullType,
-    types.UnicodeType: StringType,
-    types.StringType: StringType,
-    types.IntType: NumberType,
-    types.FloatType: NumberType,
-    types.LongType: NumberType,
-    types.BooleanType: BooleanType,
-    types.ListType: ArrayType,
-    types.DictType: ObjectType,
-}
+if sys.version_info < (3,):
+    import types
 
+    SCHEMA_TYPES = {
+        types.NoneType: NullType,
+        types.UnicodeType: StringType,
+        types.StringType: StringType,
+        types.IntType: NumberType,
+        types.FloatType: NumberType,
+        types.LongType: NumberType,
+        types.BooleanType: BooleanType,
+        types.ListType: ArrayType,
+        types.DictType: ObjectType,
+    }
+else:
+    SCHEMA_TYPES = {
+        type(None): NullType,
+        str: StringType,
+        int: NumberType,
+        float: NumberType,
+        bool: BooleanType,
+        list: ArrayType,
+        dict: ObjectType,
+    }

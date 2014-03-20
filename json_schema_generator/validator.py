@@ -30,7 +30,7 @@ class Validator(object):
             validate(json_object, self.json_schema_dict)
             valid = True
 
-        except Exception, e:
+        except Exception as e:
             self._error_message = "Inválido: \n\t%s" % str(e)
 
         return valid
