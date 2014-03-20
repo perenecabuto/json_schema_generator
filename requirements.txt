@@ -1,1 +1,2 @@
 jsonschema==2.3.0
+six==1.6.1
