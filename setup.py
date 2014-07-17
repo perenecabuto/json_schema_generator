@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='json_schema_generator',
-    version='0.4',
+    version='0.5',
     description='A simple json schema generator based on json resource with auto validation tools',
     author='Felipe Ramos Ferreira',
     author_email='perenecabuto@gmail.com',
