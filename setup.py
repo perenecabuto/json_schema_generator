@@ -2,10 +2,9 @@
 
 from setuptools import setup
 
-
 setup(
     name='json_schema_generator',
-    version='0.3',
+    version='0.5',
     description='A simple json schema generator based on json resource with auto validation tools',
     author='Felipe Ramos Ferreira',
     author_email='perenecabuto@gmail.com',
@@ -18,7 +17,9 @@ setup(
     packages=['json_schema_generator'],
     #package_data={'jsonschema_generator': ['test_template.py.tmpl']},
     include_package_data=True,
-    install_requires=['jsonschema==0.8.0'],
+    install_requires=[
+        'jsonschema==2.3.0'
+    ],
     zip_safe=False,
 
     keywords='json_schema, jsonschema, json, generator, api, validator',
@@ -32,7 +33,10 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Software Development :: Code Generators',
         'Topic :: Software Development :: Quality Assurance',
         'Topic :: Software Development :: Testing',

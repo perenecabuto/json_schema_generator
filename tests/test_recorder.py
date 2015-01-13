@@ -5,8 +5,7 @@ import json
 
 from unittest import TestCase
 from fudge import patch
-
-import fixtures
+from . import fixtures
 
 from json_schema_generator import Recorder
 
@@ -23,7 +22,7 @@ class TestRecorder(TestCase):
         if os.path.exists(cls.json_schema_file_path):
             os.remove(cls.json_schema_file_path)
 
-    @patch('urllib2.urlopen')
+    @patch('six.moves.urllib.request.urlopen')
     def test_recorder_should_get_json_from_url(self, fake_urlopen=None):
         fake_urlopen.is_callable().expects_call().returns_fake() \
             .provides('read').returns(fixtures.json_1)

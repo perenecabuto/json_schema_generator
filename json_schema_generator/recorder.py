@@ -10,7 +10,7 @@ class Recorder(object):
 
     @classmethod
     def from_url(cls, url):
-        from urllib2 import urlopen
+        from six.moves.urllib.request import urlopen
 
         json_data = urlopen(url).read()
         generator = SchemaGenerator.from_json(json_data)

@@ -1,15 +1,21 @@
 # -*- coding: utf-8 -*-
 
-import json
+import json, sys
 from unittest import TestCase
 
 from json_schema_generator import SchemaGenerator
 
 from .helpers import normalize_json
-import fixtures
+from . import fixtures
 
 
 class TestGenerator(TestCase):
+    if sys.version_info < (2, 7):
+        def assertIsInstance(self, obj, *types):
+            assert isinstance(obj, types)
+
+        def assertIn(self, key, iterable):
+            assert key in iterable
 
     def test_conversion(self):
         generator = SchemaGenerator.from_json(fixtures.json_1)
@@ -99,4 +105,3 @@ class TestGenerator(TestCase):
         expected = normalize_json(fixtures.object_with_properties_schema)
 
         self.assertEqual(gotten, expected)
-

@@ -5,7 +5,7 @@ import json
 
 from unittest import TestCase
 
-import fixtures
+from . import fixtures
 from json_schema_generator import Validator
 
 

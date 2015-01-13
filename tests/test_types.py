@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import sys
 from unittest import TestCase
 
 from json_schema_generator.schema_types import (
@@ -14,6 +15,13 @@ from json_schema_generator.schema_types import (
 
 
 class TestSchemaTypes(TestCase):
+    if sys.version_info < (2, 7):
+        def assertIsInstance(self, obj, *types):
+            assert isinstance(obj, types)
+
+        def assertIn(self, key, iterable):
+            assert key in iterable
+
 
     def test_schema_verion(self):
         self.assertEqual(Type.schema_version, "http://json-schema.org/draft-03/schema")
@@ -30,11 +38,12 @@ class TestSchemaTypes(TestCase):
         self.assertEqual(gotten, NumberType)
         self.assertEqual(gotten.json_type, "number")
 
-    def test_long_type(self):
-        gotten = Type.get_schema_type_for(long)
+    if sys.version_info < (3,):
+        def test_long_type(self):
+            gotten = Type.get_schema_type_for(long)
 
-        self.assertEqual(gotten, NumberType)
-        self.assertEqual(gotten.json_type, "number")
+            self.assertEqual(gotten, NumberType)
+            self.assertEqual(gotten.json_type, "number")
 
     def test_string_type(self):
         gotten = Type.get_schema_type_for(type("str"))
