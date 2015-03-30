@@ -1,8 +1,8 @@
-### JSON Schema Genarotor
+### JSON Schema Generator
 
 #### About
 
-It is a json schema genarator from any json source.
+It is a json schema generator from any json source.
 
 #### Usage
 
