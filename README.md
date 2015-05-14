@@ -1,8 +1,8 @@
-### JSON Schema Genarotor
+### JSON Schema Generator
 
 #### About
 
-It is a json schema genarator from any json source.
+It is a json schema generator from any json source.
 
 #### Usage
 
@@ -10,7 +10,7 @@ See [Usage](USAGE.md)
 
 #### Example
 
-Since you have a json file with the above structure":
+Since you have a json file with the above structure:
 ```json
     {
         "item_1": "string_value_1",
