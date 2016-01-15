@@ -13,7 +13,7 @@ setup(
     url='https://pypi.python.org/pypi/json_schema_generator/',
 
     scripts=['bin/jsonschema_generator.py'],
-    include_dirs=('json_schema_generator/',),
+    include_dirs=['json_schema_generator/',],
     packages=['json_schema_generator'],
     #package_data={'jsonschema_generator': ['test_template.py.tmpl']},
     include_package_data=True,
