@@ -5,7 +5,7 @@ import sys
 
 class Type(object):
 
-    schema_version = u"http://json-schema.org/draft-03/schema"
+    schema_version = u"http://json-schema.org/draft-03/schema#"
     json_type = None
     id = None
     required = False
