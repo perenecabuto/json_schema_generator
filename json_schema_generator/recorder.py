@@ -17,9 +17,16 @@ class Recorder(object):
 
         return cls(generator)
 
+    @classmethod
+    def from_file(cls, path):
+        with open(path, 'rb') as f:
+            json_data = f.read()
+        generator = SchemaGenerator.from_json(json_data)
+
+        return cls(generator)
+
     def save_json_schema(self, file_path, **kwargs):
         json_schema_data = self.generator.to_json(**kwargs)
 
         with open(file_path, 'w') as json_schema_file:
             json_schema_file.write(json_schema_data)
-
