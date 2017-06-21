@@ -23,10 +23,10 @@ def validate(args):
     is_valid = validator.assert_json(json_data)
 
     if is_valid:
-        print " * JSON is valid"
+        print (" * JSON is valid")
     else:
-        print " ! JSON is broken "
-        print validator.error_message
+        print (" ! JSON is broken ")
+        print (validator.error_message)
 
 
 def homologate(args):
@@ -79,8 +79,14 @@ def main():
     parser_homologate.set_defaults(func=homologate)
 
     args = parser.parse_args()
-    args.func(args)
-
+    try:
+        args.func
+    except AttributeError:
+        import sys
+        print("missing 1 or more required arguments (see '%s --help')" % sys.argv[0])
+        exit(1)
+    else:
+        args.func(args)
 
 if __name__ == '__main__':
     main()
