@@ -11,7 +11,10 @@ from json_schema_generator import Recorder, Validator
 
 
 def record(args):
-    rec = Recorder.from_url(args.json_source)
+    if(os.path.isfile(args.json_source)):
+        rec = Recorder.from_file(args.json_source)
+    else:
+        rec = Recorder.from_url(args.json_source)
     rec.save_json_schema(args.json_schema_file_path, indent=4)
 
 
@@ -90,4 +93,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
