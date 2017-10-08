@@ -4,7 +4,7 @@ import os
 
 from unittest import TestCase
 from json_schema_generator import Validator
-from urllib2 import urlopen
+from six.moves.urllib.request import urlopen
 
 SERVICE_URL = "${service_url}"
 

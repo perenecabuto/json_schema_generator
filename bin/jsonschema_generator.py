@@ -19,7 +19,7 @@ def record(args):
 
 
 def validate(args):
-    from urllib2 import urlopen
+    from six.moves.urllib.request import urlopen
 
     json_data = urlopen(args.json_source).read()
     validator = Validator.from_path(args.json_schema_file_path)
